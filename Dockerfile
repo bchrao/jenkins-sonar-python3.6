@@ -18,11 +18,12 @@ RUN    wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz \
     && ./configure --enable-optimizations --with-ensurepip=install \
     && make -j8 \
     && make altinstall \
+    && pip install --upgrade pip \
     && pip3.6 install pipenv \
-    && pip3.6 install pandas \
-    && pip3.6 install boto3 \
-    && pip3.6 install awswrangler \
-    && pip3.6 install awscli
+    && pip install pandas \
+    && pip install boto3 \
+    && pip install awswrangler \
+    && pip install awscli
 
 RUN    cd /tmp \
     && wget --no-verbose https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz \
