@@ -7,7 +7,7 @@ RUN    apt-get update \
             gcc make build-essential libssl-dev zlib1g-dev libbz2-dev \
             libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
             libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libsnappy-dev \
-            zip rsync \
+            zip rsync python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp
@@ -20,11 +20,8 @@ RUN    wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz \
     && make altinstall \
     && pip3.6 install pipenv
 
-RUN    pip install --upgrade pip
-RUN    pip install pandas
-RUN    pip install awscli
-RUN    pip install boto3 
-RUN    pip install awswrangler
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
 
 RUN    cd /tmp \
     && wget --no-verbose https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz \

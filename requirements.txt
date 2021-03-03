@@ -1,0 +1,4 @@
+pandas
+awscli
+boto3 
+awswrangler
