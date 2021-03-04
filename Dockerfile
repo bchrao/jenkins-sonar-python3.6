@@ -23,7 +23,7 @@ RUN    wget --no-verbose https://www.python.org/ftp/python/3.6.13/Python-3.6.13.
 RUN pip3 install --upgrade pip
 
 COPY requirements.txt /tmp/
-RUN pip3.6 install --requirement /tmp/requirements.txt
+RUN pip3 install --requirement /tmp/requirements.txt
 COPY . /tmp/
 
 RUN    cd /tmp \
