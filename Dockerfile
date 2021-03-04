@@ -12,7 +12,7 @@ RUN    apt-get update \
 
 WORKDIR /tmp
 
-RUN    wget https://www.python.org/ftp/python/3.6.13/Python-3.6.13.tgz \
+RUN    wget --no-verbose https://www.python.org/ftp/python/3.6.13/Python-3.6.13.tgz \
     && tar xvf Python-3.6.13.tgz \
     && cd /tmp/Python-3.6.13 \
     && ./configure --enable-optimizations --with-ensurepip=install \
@@ -23,7 +23,7 @@ RUN    wget https://www.python.org/ftp/python/3.6.13/Python-3.6.13.tgz \
 RUN pip3 install --upgrade pip
 
 COPY requirements.txt /tmp/
-RUN pip3 install --requirement /tmp/requirements.txt
+RUN pip3.6 install --requirement /tmp/requirements.txt
 COPY . /tmp/
 
 RUN    cd /tmp \
@@ -33,7 +33,7 @@ RUN    cd /tmp \
     && rm -rf /tmp/openshift-origin-client-tools*
 
 RUN    wget --no-verbose -O /tmp/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip \
-    && unzip /tmp/sonar-scanner.zip -d /tmp/ \
+    && unzip -q /tmp/sonar-scanner.zip -d /tmp/ \
     && mv /tmp/sonar-scanner-4.2.0.1873-linux /opt/sonar-scanner \
     && ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/bin/sonar-scanner \
     && rm -rf /tmp/sonar-scanner.zip

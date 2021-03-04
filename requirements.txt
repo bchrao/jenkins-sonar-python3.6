@@ -1,3 +1,4 @@
+setuptools
 pandas
 awscli
 boto3 
