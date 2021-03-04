@@ -12,9 +12,9 @@ RUN    apt-get update \
 
 WORKDIR /tmp
 
-RUN    wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz \
-    && tar xvf Python-3.6.8.tgz \
-    && cd /tmp/Python-3.6.8 \
+RUN    wget https://www.python.org/ftp/python/3.6.13/Python-3.6.13.tgz \
+    && tar xvf Python-3.6.13.tgz \
+    && cd /tmp/Python-3.6.13 \
     && ./configure --enable-optimizations --with-ensurepip=install \
     && make -j8 \
     && make altinstall \
