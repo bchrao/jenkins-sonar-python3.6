@@ -3,3 +3,4 @@ pandas
 awscli
 boto3 
 awswrangler
+psycopg2-binary
